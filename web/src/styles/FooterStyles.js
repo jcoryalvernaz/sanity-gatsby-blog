@@ -13,7 +13,6 @@ const FooterStyles = styled.footer`
     }
   }
   .footerWrapper {
-    box-sizing: border-box;
     max-width: 960px;
     padding: 4.5em 1.5em 1.5em;
     margin: 0 auto;
@@ -27,8 +26,6 @@ const FooterStyles = styled.footer`
   }
   .siteInfo {
     text-align: center;
-    font-size: var(--font-small-size);
-    line-height: var(--font-small-line-height);
   }
 `
 

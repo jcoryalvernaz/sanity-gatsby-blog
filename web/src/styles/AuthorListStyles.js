@@ -4,7 +4,6 @@ const AuthorListStyles = styled.div`
   margin: 2rem 0 3rem;
   border-top: 1px solid var(--color-very-light-gray);
   .headline {
-    font-weight: 600;
     margin: 0.5rem 0 0;
   }
   .list {
@@ -13,7 +12,6 @@ const AuthorListStyles = styled.div`
     padding: 0;
   }
   .listItem {
-    font-size: var(--font-small-size);
     margin: 1rem 0;
     display: flex;
     justify-content: center;
