@@ -1,9 +1,21 @@
 import React from 'react'
 
-import styles from './container.module.css'
+import styled from 'styled-components'
+import customMedia from '../styles/customMedia'
+
+const ContainerStyles = styled.div`
+  box-sizing: border-box;
+  max-width: 960px;
+  padding: 1.5em;
+  margin: 0 auto;
+
+  @media ${customMedia.minSmall} {
+    padding: 2em;
+  }
+`
 
 const Container = ({children}) => {
-  return <div className={styles.root}>{children}</div>
+  return <ContainerStyles>{children}</ContainerStyles>
 }
 
 export default Container

@@ -9,10 +9,10 @@ const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
   plugins: [
-    'gatsby-plugin-postcss',
-    'gatsby-plugin-react-helmet',
+    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-react-helmet`,
     {
-      resolve: 'gatsby-source-sanity',
+      resolve: `gatsby-source-sanity`,
       options: {
         ...clientConfig.sanity,
         token: process.env.SANITY_READ_TOKEN,
