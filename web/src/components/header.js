@@ -3,20 +3,20 @@ import React from 'react'
 import Icon from './icon'
 import {cn} from '../lib/helpers'
 
-import styles from './header.module.css'
+import HeaderStyles from '../styles/HeaderStyles'
 
 const Header = ({onHideNav, onShowNav, showNav, siteTitle}) => (
-  <div className={styles.root}>
-    <div className={styles.wrapper}>
-      <div className={styles.branding}>
+  <HeaderStyles>
+    <div className='wrapper'>
+      <div className='branding'>
         <Link to='/'>{siteTitle}</Link>
       </div>
 
-      <button className={styles.toggleNavButton} onClick={showNav ? onHideNav : onShowNav}>
+      <button className='toggleNavButton' onClick={showNav ? onHideNav : onShowNav}>
         <Icon symbol='hamburger' />
       </button>
 
-      <nav className={cn(styles.nav, showNav && styles.showNav)}>
+      <nav className={cn('nav', showNav && 'showNav')}>
         <ul>
           <li>
             <Link to='/archive/'>Archive</Link>
@@ -24,7 +24,7 @@ const Header = ({onHideNav, onShowNav, showNav, siteTitle}) => (
         </ul>
       </nav>
     </div>
-  </div>
+  </HeaderStyles>
 )
 
 export default Header

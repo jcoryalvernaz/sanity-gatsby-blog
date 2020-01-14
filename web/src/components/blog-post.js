@@ -6,14 +6,14 @@ import PortableText from './portableText'
 import Container from './container'
 import AuthorList from './author-list'
 
-import styles from './blog-post.module.css'
+import BlogPostStyles from '../styles/BlogPostStyles'
 
 function BlogPost (props) {
   const {_rawBody, authors, categories, title, mainImage, publishedAt} = props
   return (
-    <article className={styles.root}>
+    <BlogPostStyles>
       {mainImage && mainImage.asset && (
-        <div className={styles.mainImage}>
+        <div className='mainImage'>
           <img
             src={imageUrlFor(buildImageObj(mainImage))
               .width(1200)
@@ -26,14 +26,14 @@ function BlogPost (props) {
         </div>
       )}
       <Container>
-        <div className={styles.grid}>
-          <div className={styles.mainContent}>
-            <h1 className={styles.title}>{title}</h1>
+        <div className='grid'>
+          <div className='mainContent'>
+            <h1 className='title'>{title}</h1>
             {_rawBody && <PortableText blocks={_rawBody} />}
           </div>
-          <aside className={styles.metaContent}>
+          <aside className='metaContent'>
             {publishedAt && (
-              <div className={styles.publishedAt}>
+              <div className='publishedAt'>
                 {differenceInDays(new Date(publishedAt), new Date()) > 3
                   ? distanceInWords(new Date(publishedAt), new Date())
                   : format(new Date(publishedAt), 'MMMM Do, YYYY')}
@@ -41,8 +41,8 @@ function BlogPost (props) {
             )}
             {authors && <AuthorList items={authors} title='Authors' />}
             {categories && (
-              <div className={styles.categories}>
-                <h3 className={styles.categoriesHeadline}>Categories</h3>
+              <div className='categories'>
+                <h3 className='categoriesHeadline'>Categories</h3>
                 <ul>
                   {categories.map(category => (
                     <li key={category._id}>{category.title}</li>
@@ -53,7 +53,7 @@ function BlogPost (props) {
           </aside>
         </div>
       </Container>
-    </article>
+    </BlogPostStyles>
   )
 }
 

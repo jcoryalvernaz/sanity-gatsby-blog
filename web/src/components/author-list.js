@@ -2,19 +2,19 @@ import React from 'react'
 import {buildImageObj} from '../lib/helpers'
 import {imageUrlFor} from '../lib/image-url'
 
-import styles from './author-list.module.css'
+import AuthorListStyles from '../styles/AuthorListStyles'
 
 function AuthorList ({items, title}) {
   return (
-    <div className={styles.root}>
-      <h2 className={styles.headline}>{title}</h2>
-      <ul className={styles.list}>
+    <AuthorListStyles>
+      <h2 className='headline'>{title}</h2>
+      <ul className='list'>
         {items.map(({author, _key}) => {
           const authorName = author && author.name
           return (
-            <li key={_key} className={styles.listItem}>
+            <li key={_key} className='listItem'>
               <div>
-                <div className={styles.avatar}>
+                <div className='avatar'>
                   {author && author.image && author.image.asset && (
                     <img
                       src={imageUrlFor(buildImageObj(author.image))
@@ -34,7 +34,7 @@ function AuthorList ({items, title}) {
           )
         })}
       </ul>
-    </div>
+    </AuthorListStyles>
   )
 }
 
