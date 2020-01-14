@@ -5,7 +5,6 @@ const HeaderStyles = styled.div`
   position: relative;
   z-index: 100;
   .wrapper {
-    box-sizing: border-box;
     margin: 0 auto;
     max-width: 960px;
     padding: 1em;
@@ -15,7 +14,6 @@ const HeaderStyles = styled.div`
     }
   }
   .branding {
-    font-weight: 600;
     flex: 1;
     a {
       display: inline-block;
@@ -31,7 +29,6 @@ const HeaderStyles = styled.div`
   }
   .toggleNavButton {
     appearance: none;
-    font-size: 25px;
     border: none;
     background: none;
     margin: 0;

@@ -1,12 +1,11 @@
 import {format} from 'date-fns'
 import {Link} from 'gatsby'
 import React from 'react'
-import {buildImageObj, cn, getBlogUrl} from '../lib/helpers'
+import {buildImageObj, getBlogUrl} from '../lib/helpers'
 import {imageUrlFor} from '../lib/image-url'
 import PortableText from './portableText'
 
 import BlogPostPreviewStyles from '../styles/BlogPostPreviewStyles'
-import {responsiveTitle3} from './typography.module.css'
 
 function BlogPostPreview (props) {
   return (
@@ -28,7 +27,7 @@ function BlogPostPreview (props) {
           )}
         </div>
         <div className='text'>
-          <h3 className={cn(responsiveTitle3, 'title')}>{props.title}</h3>
+          <h3 className='title'>{props.title}</h3>
           {props._rawExcerpt && (
             <div className='excerpt'>
               <PortableText blocks={props._rawExcerpt} />

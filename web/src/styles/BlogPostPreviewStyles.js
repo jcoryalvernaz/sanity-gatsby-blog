@@ -34,13 +34,8 @@ const BlogPostPreviewStyles = styled.div`
     p {
       margin: 0.5em 0;
     }
-    strong {
-      font-weight: 600;
-    }
   }
   .date {
-    font-size: var(--font-small-size);
-    line-height: var(--font-small-line-height);
     color: var(--color-gray);
   }
 `

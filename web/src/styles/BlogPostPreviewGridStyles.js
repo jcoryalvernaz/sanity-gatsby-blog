@@ -4,11 +4,6 @@ import customMedia from './customMedia'
 const BlogPostPreviewGridStyles = styled.div`
   margin: 2em 0 4em;
   .headline {
-    font-size: var(--font-micro-size);
-    line-height: var(--font-micro-line-height);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
     margin: 2rem 0;
   }
   .grid {

@@ -36,9 +36,6 @@ const BlogPostStyles = styled.article`
         }
       }
     }
-    h2, h3, h4, h5, h6 {
-      font-weight: 600;
-    }
     figure {
       margin: 0;
       padding: 0;
