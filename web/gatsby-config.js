@@ -37,6 +37,7 @@ module.exports = {
         icon: `src/images/icon.png`
       }
     },
+    `gatsby-plugin-offline`,
     `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-robots-txt`,
