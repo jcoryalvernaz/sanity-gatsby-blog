@@ -16,6 +16,13 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`
       }
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // TODO Add TrackingId
+        trackingId: `YOUR_GOOGLE_ANALYTICS_TRACKINGID`
+      }
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-sanity`,
