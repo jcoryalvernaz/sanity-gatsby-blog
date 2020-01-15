@@ -23,6 +23,20 @@ module.exports = {
         trackingId: `YOUR_GOOGLE_ANALYTICS_TRACKINGID`
       }
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        // TODO Change site info
+        name: `GatsbyJs`,
+        short_name: `GatsbyJs`,
+        description: `Description`,
+        start_url: `/`,
+        background_color: `#f7f0eb`,
+        theme_color: `#a2466c`,
+        display: `standalone`,
+        icon: `src/images/icon.png`
+      }
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-sanity`,
