@@ -37,6 +37,13 @@ module.exports = {
         icon: `src/images/icon.png`
       }
     },
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-robots-txt`,
+      options: {
+        policy: [{userAgent: `*`, allow: `/`}]
+      }
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-sanity`,
