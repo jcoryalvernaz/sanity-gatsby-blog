@@ -35,6 +35,10 @@
     {
       "implements": "part:@sanity/default-layout/studio-hints-config",
       "path": "studioHintsConfig.js"
+    },
+    {
+      "implements": "part:@sanity/base/theme/variables/override-style",
+      "path": "styles/variableOverrides.css"
     }
   ]
 }
