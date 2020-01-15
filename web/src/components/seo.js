@@ -5,7 +5,7 @@ import {StaticQuery, graphql} from 'gatsby'
 import {imageUrlFor} from '../lib/image-url'
 import {buildImageObj} from '../lib/helpers'
 
-function SEO ({description, lang, meta, keywords, title, image}) {
+function SEO ({description, lang, meta, keywords, title, image, imageAlt, isPost}) {
   return (
     <StaticQuery
       query={detailsQuery}
@@ -35,15 +35,7 @@ function SEO ({description, lang, meta, keywords, title, image}) {
               },
               {
                 property: 'og:type',
-                content: 'website'
-              },
-              {
-                property: 'og:image',
-                content: metaImage
-              },
-              {
-                name: 'twitter:card',
-                content: 'summary'
+                content: isPost ? 'article' : 'website'
               },
               {
                 name: 'twitter:creator',
@@ -58,6 +50,34 @@ function SEO ({description, lang, meta, keywords, title, image}) {
                 content: metaDescription
               }
             ]
+              .concat(
+                metaImage
+                  ? [
+                    {property: 'og:image', content: metaImage},
+                    {
+                      property: 'og:image:alt',
+                      content: imageAlt
+                    },
+                    {
+                      name: 'twitter:image',
+                      content: metaImage
+                    },
+                    {
+                      name: 'twitter:image:alt',
+                      content: imageAlt
+                    },
+                    {
+                      name: 'twitter:card',
+                      content: 'summary_large_image'
+                    }
+                  ]
+                  : [
+                    {
+                      name: 'twitter:card',
+                      content: 'summary'
+                    }
+                  ]
+              )
               .concat(
                 keywords && keywords.length > 0
                   ? {
@@ -77,7 +97,10 @@ function SEO ({description, lang, meta, keywords, title, image}) {
 SEO.defaultProps = {
   lang: 'en',
   meta: [],
-  keywords: []
+  keywords: [],
+  image: {},
+  imageAlt: '',
+  isPost: false
 }
 
 SEO.propTypes = {
@@ -85,7 +108,10 @@ SEO.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.array,
   keywords: PropTypes.arrayOf(PropTypes.string),
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  image: PropTypes.object,
+  imageAlt: PropTypes.string,
+  isPost: PropTypes.bool
 }
 
 export default SEO
