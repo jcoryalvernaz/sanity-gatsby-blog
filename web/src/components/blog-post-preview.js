@@ -1,8 +1,8 @@
 import {format} from 'date-fns'
 import {Link} from 'gatsby'
+import Img from 'gatsby-image'
 import React from 'react'
-import {buildImageObj, getBlogUrl} from '../lib/helpers'
-import {imageUrlFor} from '../lib/image-url'
+import {getBlogUrl} from '../lib/helpers'
 import PortableText from './portableText'
 
 import BlogPostPreviewStyles from '../styles/BlogPostPreviewStyles'
@@ -14,18 +14,12 @@ function BlogPostPreview (props) {
         className={props.isInList ? 'inList' : 'inGrid'}
         to={getBlogUrl(props.publishedAt, props.slug.current)}
       >
-        <div className='leadMediaThumb'>
-          {props.mainImage && props.mainImage.asset && (
-            <img
-              src={imageUrlFor(buildImageObj(props.mainImage))
-                .width(600)
-                .height(Math.floor((9 / 16) * 600))
-                .auto('format')
-                .url()}
-              alt={props.mainImage.alt}
-            />
-          )}
-        </div>
+        {props.mainImage && props.mainImage.asset && (
+          <Img
+            fluid={props.mainImage.asset.fluid}
+            alt={props.mainImage.alt}
+          />
+        )}
         <div className='text'>
           <h3 className='title'>{props.title}</h3>
           {props._rawExcerpt && (

@@ -1,7 +1,6 @@
 import {format, distanceInWords, differenceInDays} from 'date-fns'
 import React from 'react'
-import {buildImageObj} from '../lib/helpers'
-import {imageUrlFor} from '../lib/image-url'
+import Img from 'gatsby-image'
 import PortableText from './portableText'
 import Container from './container'
 import AuthorList from './author-list'
@@ -13,17 +12,10 @@ function BlogPost (props) {
   return (
     <BlogPostStyles>
       {mainImage && mainImage.asset && (
-        <div className='mainImage'>
-          <img
-            src={imageUrlFor(buildImageObj(mainImage))
-              .width(1200)
-              .height(Math.floor((9 / 16) * 1200))
-              .fit('crop')
-              .auto('format')
-              .url()}
-            alt={mainImage.alt}
-          />
-        </div>
+        <Img
+          fluid={mainImage.asset.fluid}
+          alt={mainImage.alt}
+        />
       )}
       <Container>
         <div className='grid'>
