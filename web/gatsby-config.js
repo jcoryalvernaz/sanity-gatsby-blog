@@ -33,15 +33,43 @@ module.exports = {
         start_url: `/`,
         background_color: `#f7f0eb`,
         theme_color: `#a2466c`,
-        display: `standalone`,
-        icon: `src/images/icon.png`
+        display: `standalone`
+        // icon: `src/images/icon.png`
       }
     },
     `gatsby-plugin-offline`,
-    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        query: `
+        {
+          site: sanitySiteSettings {
+            siteMetadata {
+              siteUrl
+            }
+          }
+
+          allSitePage {
+            edges {
+              node {
+                path
+              }
+            }
+          }
+        }`
+      }
+    },
     {
       resolve: `gatsby-plugin-robots-txt`,
       options: {
+        query: `
+        {
+          site: sanitySiteSettings {
+            siteMetadata {
+              siteUrl
+            }
+          }
+        }`,
         policy: [{userAgent: `*`, allow: `/`}]
       }
     },

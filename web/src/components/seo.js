@@ -10,9 +10,9 @@ function SEO ({description, lang, meta, keywords, title, image, imageAlt, isPost
     <StaticQuery
       query={detailsQuery}
       render={data => {
-        const metaDescription = description || (data.site && data.site.description) || ''
-        const siteTitle = (data.site && data.site.title) || ''
-        const siteAuthor = (data.site && data.site.author && data.site.author.name) || ''
+        const metaDescription = description || (data.site && data.site.siteMetadata.description) || ''
+        const siteTitle = (data.site && data.site.siteMetadata.title) || ''
+        const siteAuthor = (data.site && data.site.siteMetadata.author && data.site.siteMetadata.author.name) || ''
         const metaImage = (image && image.asset) ? imageUrlFor(buildImageObj(image)).width(1200).url() : ''
 
         return (
@@ -119,9 +119,11 @@ export default SEO
 const detailsQuery = graphql`
   query DefaultSEOQuery {
     site: sanitySiteSettings(_id: {eq: "siteSettings"}) {
-      title
-      description
-      keywords
+      siteMetadata {
+        title
+        description
+        keywords
+      }
       author {
         name
       }
