@@ -14,9 +14,11 @@ import Layout from '../containers/layout'
 export const query = graphql`
   query IndexPageQuery {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
-      title
-      description
-      keywords
+      siteMetadata {
+        title
+        description
+        keywords
+      }
     }
     posts: allSanityPost(
       limit: 6
@@ -73,12 +75,12 @@ const IndexPage = props => {
   return (
     <Layout>
       <SEO
-        title={site.title}
-        description={site.description}
-        keywords={site.keywords}
+        title={site.siteMetadata.title}
+        description={site.siteMetadata.description}
+        keywords={site.siteMetadata.keywords}
       />
       <Container>
-        <h1 hidden>Welcome to {site.title}</h1>
+        <h1 hidden>Welcome to {site.siteMetadata.title}</h1>
         {postNodes && (
           <BlogPostPreviewList
             title='Latest blog posts'
