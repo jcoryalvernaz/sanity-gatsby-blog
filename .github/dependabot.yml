@@ -1,0 +1,53 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: gatsby-image
+    versions:
+    - 2.10.0
+    - 2.11.0
+    - 3.0.0
+    - 3.1.0
+    - 3.2.0
+    - 3.3.0
+  - dependency-name: "@sanity/desk-tool"
+    versions:
+    - 2.1.6
+    - 2.2.5
+    - 2.3.2
+    - 2.4.0
+    - 2.4.3
+    - 2.6.0
+    - 2.6.1
+    - 2.6.3
+    - 2.6.4
+    - 2.8.0
+  - dependency-name: "@sanity/core"
+    versions:
+    - 2.1.4
+    - 2.3.3
+    - 2.4.0
+    - 2.6.1
+  - dependency-name: gatsby-plugin-google-analytics
+    versions:
+    - 2.10.0
+    - 2.9.0
+  - dependency-name: "@sanity/components"
+    versions:
+    - 2.1.4
+  - dependency-name: lodash
+    versions:
+    - 4.17.20
+  - dependency-name: elliptic
+    versions:
+    - 6.5.3
+  - dependency-name: lerna
+    versions:
+    - 3.22.1
+  - dependency-name: handlebars
+    versions:
+    - 4.7.6
